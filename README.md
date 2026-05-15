@@ -5,6 +5,8 @@
 
 The primary use case is to ingest a **JSON configuration file**—produced by tools like `phikl-parse` that translate NONMEM control streams—and use it to construct, execute, and report on an `nlmixr2` modeling pipeline. This allows organizations to seamless transition from NONMEM to `nlmixr` environments with fully reproducible execution artifacts.
 
+Example data  acop.csv taken from Ron Keizer - https://github.com/ronkeizer/nonmem_examples
+
 ## Architecture and Structure
 To ensure a well-organized workflow, the package is split into modular R scripts that separate concerns across the modeling lifecycle:
 
