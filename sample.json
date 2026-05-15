@@ -1,0 +1,151 @@
+{
+  "model": {
+    "model_type": "ADVAN4",
+    "custom_ode": null,
+    "problem_description": null,
+    "subroutines": null,
+    "compartments": null,
+    "differential_equations": null,
+    "initial_conditions": null,
+    "pk_code": [
+      "CL = THETA(1) * (WT/70)**0.75 * EXP(ETA(1));",
+      "V2 = THETA(2) * (WT/70) * EXP(ETA(2));",
+      "Q  = THETA(3) * (WT/70)**0.75;",
+      "V3 = THETA(4) * (WT/70);",
+      "KA = THETA(5) * EXP(ETA(3));",
+      "S2 = V2;"
+    ],
+    "error_code": null,
+    "is_pkpd": false,
+    "has_differential_equations": false,
+    "solver_tolerance": null
+  },
+  "data": {
+    "file": "acop.csv",
+    "id_column": "ID",
+    "time_column": "TIME",
+    "dv_column": "DV",
+    "amt_column": "AMT",
+    "evid_column": "EVID",
+    "mdv_column": "MDV",
+    "rate_column": null,
+    "ss_column": null,
+    "ii_column": null,
+    "addl_column": null,
+    "cmt_column": null,
+    "covariates": [
+      "SEX",
+      "WT",
+      "ETN"
+    ],
+    "ignore_character": "@",
+    "accept_conditions": []
+  },
+  "parameters": {
+    "theta": {
+      "V2": 40.0,
+      "CL": 5.0,
+      "KA": 1.5,
+      "V3": 100.0,
+      "Q": 10.0
+    },
+    "theta_names": {
+      "KA": "KA (1/h)",
+      "V3": "V3 (L)",
+      "Q": "Q (L/h)",
+      "CL": "CL (L/h)",
+      "V2": "V2 (L)"
+    },
+    "omega": {
+      "ETA1": 0.09,
+      "ETA2": 0.09,
+      "ETA3": 0.25
+    },
+    "omega_names": {
+      "ETA2": "Inter-individual variability ETA2",
+      "ETA3": "Inter-individual variability ETA3",
+      "ETA1": "Inter-individual variability ETA1"
+    },
+    "omega_blocks": null,
+    "sigma": [
+      0.04,
+      0.1
+    ],
+    "sigma_names": [
+      "Proportional Error",
+      "Additive Error (mg/L)"
+    ],
+    "sigma_blocks": null,
+    "error_model": "additive",
+    "constraints": {
+      "theta_lower": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "theta_upper": [
+        500.0,
+        4000.0,
+        1000.0,
+        10000.0,
+        150.0
+      ],
+      "omega_lower": null,
+      "omega_upper": null,
+      "theta_fixed": null,
+      "omega_fixed": null,
+      "sigma_fixed": null
+    }
+  },
+  "estimation": {
+    "method": "SAEM",
+    "n_burn_in": null,
+    "n_iter": null,
+    "n_chains": null,
+    "seed": null,
+    "maxeval": null,
+    "print_iterations": null,
+    "sigdigits": null,
+    "interaction": null,
+    "laplacian": null,
+    "noabort": null,
+    "posthoc": null,
+    "eonly": null,
+    "mceta": null
+  },
+  "output": {
+    "directory": "",
+    "save_individual_parameters": true,
+    "save_predictions": true,
+    "generate_plots": true,
+    "tables": [
+      {
+        "file": "sdtab001",
+        "columns": [
+          "ID",
+          "TIME",
+          "AMT",
+          "DV",
+          "PRED",
+          "IPRED",
+          "CWRES",
+          "SEX",
+          "ETA1",
+          "ETA2",
+          "ETA3",
+          "CL",
+          "V2",
+          "Q",
+          "V3",
+          "KA"
+        ],
+        "noprint": true,
+        "oneheader": true,
+        "firstonly": false,
+        "noappend": false
+      }
+    ]
+  }
+}
