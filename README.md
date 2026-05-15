@@ -1,4 +1,4 @@
-# nlmixrWorkflow
+# nlmixrWorkflow - integrated into drlevy.ai
 
 ## Scope
 `nlmixrWorkflow` is a structured and highly automated R package/pipeline intended to facilitate the execution of `nlmixr2` models based strictly on structured JSON configuration files.
