@@ -27,6 +27,8 @@ A typical workflow starts with an existing NONMEM control stream (e.g., `.mod` o
 
 For example, if you have a NONMEM control stream named `run001.mod`, you can generate the JSON file using the `phikl-parse` CLI:
 
+phikl-parse program: https://github.com/pharmacometric/phikl-parser
+
 ```bash
 # Basic conversion
 phikl-parse -i run001.mod -o run001.json
