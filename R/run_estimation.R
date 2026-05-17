@@ -77,9 +77,9 @@ run_nlmixr_estimation <- function(model_ui, data, est_options = list()) {
   message(sprintf("  Estimation method : %s", est_method))
   message(sprintf("  Control object    : %s", class(control_obj)[1]))
 
-  # ── 4. Execute the fit ────────────────────────────────────────────────────
+  # ── 4. Execute the fit, add cwres ────────────────────────────────────────────────────
   fit <- tryCatch(
-    nlmixr2(model_ui, data, est = est_method, control = control_obj),
+    addCwres(nlmixr2(model_ui, data, est = est_method, control = control_obj)),
     error = function(e) stop("nlmixr2 estimation failed: ", e$message)
   )
 
